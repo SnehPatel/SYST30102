@@ -37,7 +37,7 @@ OS Definition
 
 Computer Startup
   - POST first
-  - bootstrap program is loaded at power-up or reboot
+  - Bootstrap program is loaded at power-up or reboot
     - Typically stored in ROM (Read-only memory) or EPROM, generally known as firmware
       - ROM because it protects the firmware from attacks, allows the OS to be separated from the hardware
     - Initializes all aspects of system
@@ -62,4 +62,66 @@ Direct Memory Access Structure
   - Only one interrupt is generated per block, rather than the one interrupt per byte
 
 OS Structure
-  -
+  - Multiprogramming (Batch System)
+    - needed for efficiency
+    - Single user cannot keep CPU and I/O devices busy at all times
+    - Organizes jobs (code and data) so CPU always has one job to execute
+    - A subset of total jobs in system is kept in memory
+    - One job selected and run via job scheduling
+    - When is has to wait (I/O), OS switches to another job
+  - Timesharing (Multitasking)
+    - is a logical extension in which the CPU switches jobs so frequently that users can interact with each job while it is running, creating interactive computing
+    - Response time should be <1 second
+    - Each user has at least one program executing in memory -> process
+    - CPU scheduling is when several jobs that are ready to run at the same time
+    - If the processes don't fit in memory, swapping moves them in and out of memory to run
+    - Virtual memory allows execution of processes not complete in memory
+
+OS Operations
+  - Dual-mode operation allows the OS to protect itself and other components
+    - User mode and kernel mode
+    - Mode bit provided by hardware
+      - Provides ability to distinguished when system is running user code or kernel code
+
+Process Management and Synchronization
+  - A process is a program in execution
+    - A unit of work within the systems
+  - Program is a passive entity, Process is an active entity
+  - A process needs resources to accomplish its tasks
+    - CPU, memory, I/O, files
+  - Process termination requires reclaim of any reusable resources
+
+Process Management Activities
+  - The OS is responsible for the following activities in connection with process management
+    - Creating and deleting both user and system processes
+    - Suspending and resuming processes
+    - Providing mechanisms for process synchronization, communication, deadlock (stuck or stopped) handling
+
+Memory Management
+  - Instructions and data for the program (all or part) must be in the memory
+  - Memory management determines what is the memory and when
+
+Storage Structure
+  - Main memory - only large storage media that the CPU can access directly
+    - Random access
+      - Takes the same time regardless where the file is located, hence it is faster (read, write)
+      - HD - slower since it has to physically has to find the file
+    - Volatile
+      - Memory that gets erased once the power source is disconnected
+  - Caching - copying information into faster storage system; main memory can be viewed as a cache for secondary storage
+  - Device driver for each device controller to manage I/O; provides uniform interface between controller and kernel
+
+Files, Protection and Security
+  - Protection - any mechanism for controlling access of processes or users to resources defined by the OS
+  - Security - defense of the system against internal and external attacks
+    - Huge range, including DDoS, worms, viruses, identity Theft, theft of service
+  - Systems first distinguish among users, to determine who can do that
+    - User identifiers (user IDs, security IDs) include name and associated number, one per users
+    - User ID is used to determine access control
+    - Group identifiers (group ID) allows set of users to be defined and controls managed, then also associated with each process, files
+
+Computing Environments - Traditional
+  - Stand-alone general purpose machines
+  - Networked computers (thin clients)
+  - Mobile computers interconnect via wireless networks
+  - Networking is becoming ubiquitous - even home systems use firewalls to protect home computers from Internet attacks
