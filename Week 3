@@ -22,5 +22,5 @@ Process State
     - ready : The process is waiting to be assigned to a processor
     - running : Instructions are being executed
     - waiting : The process is waiting for some event to occur
-    - terminated : The process has finished execution
+    - terminated : The process has finished execution and deallocate all resources
   - Time slice : Amount of processing time the process gets (time slot)
