@@ -1,0 +1,25 @@
+Week 3
+
+Process Concept
+  - Process is a program in execution, aka job
+  - A program can be several processes
+    Ex. Multiple users executing the same program
+  - Program is passive entity stored on disk (executable file), process is active
+    - it becomes a process when executable file is loaded into memory
+  - Parts of a process (bottom to top):
+    - Text: The program code
+    - Data: Global variables
+    - Heap: Memory that is allocated during run time
+    - Stack: Temp data, function parameters, return addresses, local variables
+      - Stack and Heap grow according to each other, Stack reads the instructions (code) and Heap stores the data from the instructions
+      - Code (stack) and data (heap) are kept separately for security purposes
+    - Why can the same program give the rise to multiple processes?
+      The processes share the same code, hence it is just an instance
+
+Process State
+  - As the process executes, it changes state:
+    - new
+    - ready
+    - running
+    - waiting
+    - terminated
