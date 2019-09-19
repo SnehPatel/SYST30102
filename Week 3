@@ -56,3 +56,13 @@ Process Creation
         - =0 child
         - > parent
     - wait() : allows the parent process to wait while the child executes
+    - exec() : system call used after a fork() to replace the process' memory space with a new program
+               Allows the child to run a different program
+    - Process Termination
+      - process executes last statement and then asks the OS to delete it using the exit() system call
+        - Returns status data from child to parent -via wait() and process resources are deallocated by OS
+      - Parent may terminate the execution of children processes using the abort() system call
+      - Some reasons to use abort()
+        - Child has exceeded allocated resources
+        - Task assigned to child is no longer required
+        - The parent is exiting and the OS does not allow a child to continue if its parent terminates
