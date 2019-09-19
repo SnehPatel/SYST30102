@@ -42,10 +42,17 @@ Process Creation
     - Resource sharing options
       - Parent and children share all resources
       - Children share subset of parent's resources
-      - Parent and child share no resource - DDoS 
+      - Parent and child share no resource - DDoS
     - Execution options
       - Parent and children execute concurrently
       - Parent waits until children terminate
     - Address space
       - Child duplicate of parent
       - Child has a program loaded into it
+  - UNIX system calls
+    - fork() : Creating a new process
+      - int rc = fork(), if(rc [option from below])
+        - < tail
+        - =0 child
+        - > parent
+    - wait() : allows the parent process to wait while the child executes
